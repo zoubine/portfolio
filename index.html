@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Zoubine · Dev & Cyber</title>
-  <!-- Optimized for mobile + creative eye‑appealing -->
+  <!-- Optimized, elegant, no fake percentages -->
   <style>
     /* ----- RESET & BASE ----- */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -72,7 +72,7 @@
     }
     .section-tag::before { content: ''; width: 30px; height: 1.5px; background: var(--accent-neon); opacity: 0.5; }
 
-    /* ----- HEADER (mobile-first adjustments) ----- */
+    /* ----- HEADER (mobile-first) ----- */
     header {
       position: fixed;
       top: 0;
@@ -248,13 +248,25 @@
     section { padding: 5rem 0; position: relative; }
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 
-    /* ----- ABOUT CARD ----- */
+    /* ----- ABOUT CARD (enhanced with leadership) ----- */
     .about-text {
       font-size: 1rem;
       color: var(--text-secondary);
       margin-bottom: 1.5rem;
     }
     .highlight { color: var(--accent-neon); font-weight: 500; }
+    .leadership-badge {
+      display: inline-block;
+      background: rgba(183, 255, 61, 0.1);
+      border: 1px solid var(--accent-neon);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      margin-bottom: 1.2rem;
+      color: var(--accent-neon);
+      font-family: var(--font-mono);
+      letter-spacing: 1px;
+    }
     .terminal-card {
       background: var(--surface);
       border: 1px solid var(--border-dim);
@@ -323,43 +335,51 @@
       color: var(--text-secondary);
     }
 
-    /* ----- SKILLS (responsive) ----- */
+    /* ----- SKILLS (ELEGANT, NO PERCENTAGES) ----- */
     .skills-wrapper {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
+      margin-top: 2rem;
     }
     .skill-card {
       background: var(--surface);
       border: 1px solid var(--border-dim);
-      padding: 1.5rem;
-      border-radius: 18px;
+      padding: 1.8rem 1.5rem;
+      border-radius: 20px;
+      transition: var(--transition);
+      backdrop-filter: blur(5px);
+    }
+    .skill-card:hover { border-color: var(--accent-cyan); background: #0f151e; }
+    .skill-category {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent-neon);
+      margin-bottom: 1.2rem;
+    }
+    .skill-name {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-tag {
+      font-size: 0.75rem;
+      padding: 0.3rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border-dim);
+      border-radius: 30px;
+      color: var(--text-secondary);
       transition: var(--transition);
     }
-    .skill-header { display: flex; justify-content: space-between; margin-bottom: 0.8rem; }
-    .skill-name { font-family: var(--font-display); font-size: 1.3rem; }
-    .skill-pct { color: var(--accent-neon); font-family: var(--font-mono); font-size: 0.9rem; }
-    .progress-bar {
-      height: 4px;
-      background: var(--surface-light);
-      border-radius: 4px;
-      margin: 0.8rem 0;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent-neon), var(--accent-cyan));
-      border-radius: 4px;
-      width: 0%;
-      transition: width 1.2s cubic-bezier(0.2,0.9,0.3,1);
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 1rem; }
-    .skill-tag {
-      font-size: 0.65rem;
-      padding: 0.2rem 0.7rem;
-      background: var(--bg);
-      border-radius: 20px;
-      border: 1px solid var(--border-dim);
-    }
+    .skill-tag:hover { border-color: var(--accent-neon); color: var(--text-primary); }
 
     /* ----- CONTACT (responsive) ----- */
     .contact-grid {
@@ -425,7 +445,7 @@
     @media (max-width: 600px) {
       .container { padding: 0 1.5rem; }
       header { padding: 0.8rem 1.5rem; }
-      .nav-links { display: none; }  /* simplified mobile nav — focus on content */
+      .nav-links { display: none; }
       .status-badge { font-size: 0.6rem; padding: 0.2rem 0.8rem; }
       .logo { font-size: 1.6rem; }
       
@@ -442,7 +462,8 @@
       h2 { font-size: 2.5rem; }
       
       .skills-wrapper { grid-template-columns: 1fr; gap: 1rem; }
-      .skill-card { padding: 1.2rem; }
+      .skill-card { padding: 1.5rem; }
+      .skill-name { font-size: 1.6rem; }
       
       .project-card { padding: 1.5rem; }
       .project-title { font-size: 1.6rem; }
@@ -456,16 +477,13 @@
       .ticker span { font-size: 0.7rem; padding: 0 1rem; }
     }
 
-    /* Extra small (iPhone SE) */
     @media (max-width: 380px) {
       .hero-title { font-size: 2.8rem; }
-      .hero-visual { padding: 1rem; }
       .btn { font-size: 0.75rem; padding: 0.7rem 1.2rem; }
       .project-title { font-size: 1.4rem; }
       .contact-big { font-size: 2.5rem; }
     }
 
-    /* Touch-friendly */
     a, .project-card, .contact-item { -webkit-tap-highlight-color: transparent; }
   </style>
   <!-- fonts -->
@@ -499,6 +517,7 @@
           </div>
           <div class="hero-stats">
             <div class="stat-item"><div class="stat-label">FOCUS</div><div class="stat-value">Dev · Cyber · AI</div></div>
+            <div class="stat-item"><div class="stat-label">LEADERSHIP</div><div class="stat-value">VP · Great Debaters</div></div>
             <div class="stat-item"><div class="stat-label">LANGUAGES</div><div class="stat-value">EN · FR · AR</div></div>
           </div>
         </div>
@@ -520,14 +539,16 @@
       </div>
     </div>
 
-    <!-- ABOUT -->
+    <!-- ABOUT (enhanced with leadership) -->
     <section id="about">
       <div class="container grid-2 fade-up">
         <div>
           <div class="section-tag">01 — PROFILE</div>
           <h2>Who am I</h2>
+          <div class="leadership-badge">🗣️ VICE PRESIDENT · GREAT DEBATERS CLUB</div>
           <p class="about-text">Computer Engineering student from Morocco, deeply into <span class="highlight">development, cybersecurity, and AI</span>. I build real things that are both functional and visually sharp.</p>
           <p style="color:var(--text-secondary); margin-bottom:1rem;">🛠️ Stack: HTML, CSS, JS, SQL, Java, PHP + networking & security. Always shipping.</p>
+          <p style="color:var(--text-secondary);"><span class="highlight">Leadership & Communication:</span> As VP of the Great Debaters Club, I lead teams, organize events, and thrive in public speaking — bridging tech and people.</p>
         </div>
         <div class="terminal-card">
           <div class="term-header">
@@ -539,6 +560,7 @@
             <div>{</div>
             <div>  <span class="json-key">"name"</span>: <span class="json-str">"Zoubine Soulaimane"</span>,</div>
             <div>  <span class="json-key">"role"</span>: <span class="json-str">"Student & Builder"</span>,</div>
+            <div>  <span class="json-key">"leadership"</span>: <span class="json-str">"VP Great Debaters"</span>,</div>
             <div>  <span class="json-key">"interests"</span>: [<span class="json-str">"Dev"</span>, <span class="json-str">"Cyber"</span>, <span class="json-str">"AI"</span>],</div>
             <div>  <span class="json-key">"stack"</span>: [<span class="json-str">"JS"</span>, <span class="json-str">"Java"</span>, <span class="json-str">"PHP"</span>, <span class="json-str">"SQL"</span>]</div>
             <div>}</div>
@@ -582,18 +604,54 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- SKILLS (ELEGANT TAGS, NO PERCENTAGES) -->
     <section id="skills">
       <div class="container fade-up">
         <div class="section-tag">03 — TECHNICAL ARSENAL</div>
         <h2>Stack & Tools</h2>
-        <div class="skills-wrapper" id="skillsContainer">
-          <div class="skill-card"><div class="skill-header"><span class="skill-name">Frontend</span><span class="skill-pct">85%</span></div><div class="progress-bar"><div class="progress-fill" data-width="85"></div></div><div class="skill-tags"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JS</span><span class="skill-tag">Responsive</span></div></div>
-          <div class="skill-card"><div class="skill-header"><span class="skill-name">Backend</span><span class="skill-pct">75%</span></div><div class="progress-bar"><div class="progress-fill" data-width="75"></div></div><div class="skill-tags"><span class="skill-tag">Java</span><span class="skill-tag">PHP</span><span class="skill-tag">SQL</span><span class="skill-tag">Node.js</span></div></div>
-          <div class="skill-card"><div class="skill-header"><span class="skill-name">Cybersecurity</span><span class="skill-pct">70%</span></div><div class="progress-bar"><div class="progress-fill" data-width="70"></div></div><div class="skill-tags"><span class="skill-tag">Networking</span><span class="skill-tag">OWASP</span><span class="skill-tag">Kali</span></div></div>
-          <div class="skill-card"><div class="skill-header"><span class="skill-name">AI/ML</span><span class="skill-pct">65%</span></div><div class="progress-bar"><div class="progress-fill" data-width="65"></div></div><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">LLMs</span><span class="skill-tag">Agents</span></div></div>
-          <div class="skill-card"><div class="skill-header"><span class="skill-name">Databases</span><span class="skill-pct">80%</span></div><div class="progress-bar"><div class="progress-fill" data-width="80"></div></div><div class="skill-tags"><span class="skill-tag">MySQL</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MongoDB</span></div></div>
-          <div class="skill-card"><div class="skill-header"><span class="skill-name">Languages</span><span class="skill-pct">90%</span></div><div class="progress-bar"><div class="progress-fill" data-width="90"></div></div><div class="skill-tags"><span class="skill-tag">English</span><span class="skill-tag">French</span><span class="skill-tag">Arabic</span></div></div>
+        <div class="skills-wrapper">
+          <div class="skill-card">
+            <div class="skill-category">Frontend</div>
+            <div class="skill-name">UI/UX</div>
+            <div class="skill-items">
+              <span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Responsive</span><span class="skill-tag">Tailwind</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-category">Backend</div>
+            <div class="skill-name">Server Side</div>
+            <div class="skill-items">
+              <span class="skill-tag">Java</span><span class="skill-tag">PHP</span><span class="skill-tag">SQL</span><span class="skill-tag">Node.js</span><span class="skill-tag">REST</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-category">Cybersecurity</div>
+            <div class="skill-name">Security</div>
+            <div class="skill-items">
+              <span class="skill-tag">Networking</span><span class="skill-tag">OWASP</span><span class="skill-tag">Kali</span><span class="skill-tag">Encryption</span><span class="skill-tag">Wireshark</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-category">AI & Data</div>
+            <div class="skill-name">AI/ML</div>
+            <div class="skill-items">
+              <span class="skill-tag">Python</span><span class="skill-tag">LLMs</span><span class="skill-tag">Prompt Eng</span><span class="skill-tag">Agents</span><span class="skill-tag">Pandas</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-category">Databases</div>
+            <div class="skill-name">Data</div>
+            <div class="skill-items">
+              <span class="skill-tag">MySQL</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">IndexedDB</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-category">Soft Skills</div>
+            <div class="skill-name">Human</div>
+            <div class="skill-items">
+              <span class="skill-tag">Leadership</span><span class="skill-tag">Communication</span><span class="skill-tag">Debate</span><span class="skill-tag">Teamwork</span><span class="skill-tag">EN/FR/AR</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -608,9 +666,9 @@
         </div>
         <div class="contact-links">
           <a class="contact-item" href="mailto:zoubinesoulaimane@gmail.com"><span class="contact-label">Email</span><span class="contact-value">zoubinesoulaimane@gmail.com</span><span class="contact-arrow">→</span></a>
-          <a class="contact-item" href="https://github.com/SzoubineDev" target="_blank"><span class="contact-label">GitHub</span><span class="contact-value">SzoubineDev</span><span class="contact-arrow">→</span></a>
-          <a class="contact-item" href="https://www.linkedin.com/in/soulaimane-zoubine/" target="_blank"><span class="contact-label">LinkedIn</span><span class="contact-value">soulaimane-zoubine</span><span class="contact-arrow">→</span></a>
-          <a class="contact-item" href="#"><span class="contact-label">Portfolio</span><span class="contact-value">szoubine.me</span><span class="contact-arrow">→</span></a>
+          <a class="contact-item" href="https://github.com/SzoubineDev" target="_blank"><span class="contact-label">GitHub</span><span class="contact-value">/zoubine-dev</span><span class="contact-arrow">→</span></a>
+          <a class="contact-item" href="https://www.linkedin.com/in/soulaimane-zoubine/" target="_blank"><span class="contact-label">LinkedIn</span><span class="contact-value">/in/zoubine</span><span class="contact-arrow">→</span></a>
+          <a class="contact-item" href="#"><span class="contact-label">Portfolio</span><span class="contact-value">zoubine.dev</span><span class="contact-arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -618,7 +676,7 @@
 
   <footer class="container">
     <div>© 2025 Zoubine Soulaimane — built for speed & creativity</div>
-    <div>Morocco · <span style="color:var(--accent-neon);">dev & sec</span></div>
+    <div>Morocco · <span style="color:var(--accent-neon);">dev & sec</span> · VP Great Debaters</div>
   </footer>
 
   <script>
@@ -629,24 +687,8 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -10px 0px' });
+      }, { threshold: 0.12 });
       fadeElements.forEach(el => observer.observe(el));
-
-      // Animate skill bars
-      const skillsContainer = document.getElementById('skillsContainer');
-      const barObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const bars = entry.target.querySelectorAll('.progress-fill');
-            bars.forEach(bar => {
-              const width = bar.getAttribute('data-width');
-              if (width) setTimeout(() => { bar.style.width = width + '%'; }, 100);
-            });
-            barObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      if (skillsContainer) barObserver.observe(skillsContainer);
 
       // Smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
